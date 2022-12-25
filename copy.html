@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<style>
+*{
+    margin: 0; padding: 0;
+    list-style: none; text-decoration: none;
+}
+.nav{
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #042331;
+    transition:all .5s ease;
+}
+.nav header{
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #063146;
+    user-select: none;
+}
+.sidebar a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,1);
+    border-bottom: 1px solid black;
+    transition: .4s;
+}
+.sidebar li:hover a{
+    padding-left: 50px ;
+}
+.sidebar a i{
+    margin-right: 16px;
+}
+#check{
+    display: none;
+}
+label #btn, label#close{
+    position: absolute;
+    cursor: pointer;
+    background: #042331;
+    border-radius: 3px;
+}
+label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color:white;
+    padding: 6px 12px;
+    transition: all .5s;
+}
+label #close{
+    z-index: 1111;
+    left: -195px;
+    top: 17px;
+    font-size: 30px;
+    color:#0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease;
+}
+#check:checked~ .nav{
+    left: 0;
+}
+#check:checked~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+#check:checked~ label #close{
+    left: -195px;
+}
+</style>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="close"></i>
+    </label>
+<div class="nav">
+    <header>Vishnu Enterprises</header>
+    <ul class="sidebar">
+        <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="#"><i class="fas fa-wallet"></i>Buy</a></li>
+    </ul>
+   </div> 
+</body>
+</html>
