@@ -1,102 +1,1239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <style>
-*{
-    margin: 0; padding: 0;
-    list-style: none; text-decoration: none;
-}
-.nav{
-    position: fixed;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #042331;
-    transition:all .5s ease;
-}
-.nav header{
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    line-height: 70px;
-    background: #063146;
-    user-select: none;
-}
-.sidebar a{
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 60px;
-    font-size: 20px;
-    color: white;
-    padding-left: 40px;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(255,255,255,1);
-    border-bottom: 1px solid black;
-    transition: .4s;
-}
-.sidebar li:hover a{
-    padding-left: 50px ;
-}
-.sidebar a i{
-    margin-right: 16px;
-}
-#check{
-    display: none;
-}
-label #btn, label#close{
-    position: absolute;
-    cursor: pointer;
-    background: #042331;
-    border-radius: 3px;
-}
-label #btn{
-    left: 40px;
-    top: 25px;
-    font-size: 35px;
-    color:white;
-    padding: 6px 12px;
-    transition: all .5s;
-}
-label #close{
-    z-index: 1111;
-    left: -195px;
-    top: 17px;
-    font-size: 30px;
-    color:#0a5275;
-    padding: 4px 9px;
-    transition: all .5s ease;
-}
-#check:checked~ .nav{
-    left: 0;
-}
-#check:checked~ label #btn{
-    left: 250px;
-    opacity: 0;
-    pointer-events: none;
-}
-#check:checked~ label #close{
-    left: -195px;
-}
+    .gg-mail,
+    .gg-mail::after {
+
+        display: inline-block;
+        box-sizing: border-box;
+        height: 14px;
+        border: 2px solid
+    }
+
+    .gg-mail {
+        overflow: hidden;
+
+        transform: scale(var(--ggs, 1));
+        position: relative;
+        width: 18px;
+        border-radius: 2px
+    }
+
+    .gg-mail::after {
+        content: "";
+        position: absolute;
+        border-radius: 3px;
+        width: 14px;
+        transform: rotate(-45deg);
+        bottom: 3px;
+        left: 0
+    }
+
+    .gg-shopping-cart-white {
+        color: goldenrod;
+        cursor: pointer;
+        margin-right: 20px;
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        transform: scale(var(--ggs, 1));
+        width: 20px;
+        height: 21px;
+        color: white;
+        background:
+            linear-gradient(to left, currentColor 12px,
+                transparent 0) no-repeat -1px 6px/18px 2px,
+            linear-gradient(to left, currentColor 12px,
+                transparent 0) no-repeat 6px 14px/11px 2px,
+            linear-gradient(to left, currentColor 12px,
+                transparent 0) no-repeat 0 2px/4px 2px,
+            radial-gradient(circle, currentColor 60%,
+                transparent 40%) no-repeat 12px 17px/4px 4px,
+            radial-gradient(circle, currentColor 60%,
+                transparent 40%) no-repeat 6px 17px/4px 4px
+    }
+
+    .gg-shopping-cart-white::after,
+    .gg-shopping-cart-white::before {
+        color: goldenrod;
+        cursor: pointer;
+        content: "";
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        width: 2px;
+        height: 14px;
+        background: currentColor;
+        top: 2px;
+        left: 4px;
+        color: white;
+        transform: skew(12deg)
+    }
+
+    .gg-shopping-cart-white::after {
+        color: goldenrod;
+        cursor: pointer;
+        height: 10px;
+        top: 6px;
+        left: 16px;
+        color: white;
+        transform: skew(-12deg)
+    }
+
+
+    .gg-shopping-cart {
+        color: goldenrod;
+        cursor: pointer;
+        margin-right: 20px;
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        transform: scale(var(--ggs, 1));
+        width: 20px;
+        height: 21px;
+        background:
+            linear-gradient(to left, currentColor 12px,
+                transparent 0) no-repeat -1px 6px/18px 2px,
+            linear-gradient(to left, currentColor 12px,
+                transparent 0) no-repeat 6px 14px/11px 2px,
+            linear-gradient(to left, currentColor 12px,
+                transparent 0) no-repeat 0 2px/4px 2px,
+            radial-gradient(circle, currentColor 60%,
+                transparent 40%) no-repeat 12px 17px/4px 4px,
+            radial-gradient(circle, currentColor 60%,
+                transparent 40%) no-repeat 6px 17px/4px 4px
+    }
+
+    .gg-shopping-cart::after,
+    .gg-shopping-cart::before {
+        color: goldenrod;
+        cursor: pointer;
+        content: "";
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        width: 2px;
+        height: 14px;
+        background: currentColor;
+        top: 2px;
+        left: 4px;
+        transform: skew(12deg)
+    }
+
+    .gg-shopping-cart::after {
+        color: goldenrod;
+        cursor: pointer;
+        height: 10px;
+        top: 6px;
+        left: 16px;
+        transform: skew(-12deg)
+    }
+
+    .gg-profile,
+    .gg-profile::after,
+    .gg-profile::before {
+        color: goldenrod;
+        cursor: pointer;
+        display: inline-block;
+        box-sizing: border-box;
+        border: 2px solid;
+        border-radius: 100px
+    }
+
+    .gg-profile {
+        color: goldenrod;
+        overflow: hidden;
+        transform: scale(var(--ggs, 1));
+        width: 22px;
+        height: 22px;
+        position: relative
+    }
+
+    .gg-profile::after,
+    .gg-profile::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 5px;
+        color: goldenrod;
+        width: 8px;
+        height: 8px
+    }
+
+    .gg-profile::after {
+        color: goldenrod;
+        border-radius: 200px;
+        top: 11px;
+        left: 0px;
+        width: 18px;
+        height: 18px
+    }
+
+    .gg-phone {
+        box-sizing: border-box;
+        position: relative;
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        transform: scale(var(--ggs, 1))
+    }
+
+    .gg-phone::after,
+    .gg-phone::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute
+    }
+
+    .gg-phone::after {
+        width: 18px;
+        height: 18px;
+        border-top-left-radius: 1px;
+        border-bottom-right-radius: 1px;
+        border-bottom-left-radius: 12px;
+        border-left: 4px solid;
+        border-bottom: 4px solid;
+        left: 2px;
+        bottom: 2px;
+        background:
+            linear-gradient(to left,
+                currentColor 10px,
+                transparent 0) no-repeat right 11px/6px 4px,
+            linear-gradient(to left,
+                currentColor 10px,
+                transparent 0) no-repeat -1px 0/4px 6px
+    }
+
+    .gg-phone::before {
+        width: 20px;
+        height: 20px;
+        border: 6px double;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-radius: 50%;
+        transform: rotate(-45deg);
+        bottom: 2px;
+        left: 2px
+    }
+
+    .gg-close {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs, 1));
+        width: 22px;
+        height: 22px;
+        border: 2px solid transparent;
+        border-radius: 40px
+    }
+
+    .gg-close::after,
+    .gg-close::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        background: currentColor;
+        transform: rotate(45deg);
+        border-radius: 5px;
+        top: 14px;
+        left: 7px;
+    }
+
+    .gg-close::after {
+        transform: rotate(-45deg)
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .top {
+        position: absolute;
+        left: 40%;
+        top: 15px;
+    }
+
+    .v {
+        width: 55px;
+        height: 55px;
+    }
+
+    .vish {
+        position: relative;
+        top: -1.3rem;
+        color: white;
+        font-size: 20px;
+        font-family: bradley hand, cursive;
+    }
+
+    .topright {
+        position: absolute;
+        right: 52px;
+        top: 25px;
+    }
+
+    .above {
+        position: sticky;
+        top: -10px;
+        z-index: 1;
+        width: 100%;
+        height: 90px;
+        background: #959595;
+        background: -moz-linear-gradient(-45deg, #959595 0%, #0d0d0d 46%, #010101 50%, #0a0a0a 53%, #4e4e4e 76%, #383838 87%, #1b1b1b 100%);
+        background: -webkit-linear-gradient(-45deg, #959595 0%, #0d0d0d 46%, #010101 50%, #0a0a0a 53%, #4e4e4e 76%, #383838 87%, #1b1b1b 100%);
+        background: linear-gradient(135deg, #959595 0%, #0d0d0d 46%, #010101 50%, #0a0a0a 53%, #4e4e4e 76%, #383838 87%, #1b1b1b 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#959595', endColorstr='#1b1b1b', GradientType=1);
+
+    }
+
+    .log {
+        color: goldenrod;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        padding: 8px;
+        top: -6px;
+    }
+
+
+    .container {
+        background-image: url(/image/temp.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        width: 100%;
+    }
+
+    .quote {
+        position: absolute;
+        top: 250px;
+        left: 122px;
+        display: inline-block;
+        color: #CEF0D4;
+        font-size: 40px;
+        font-family: 'Courier New', Courier, monospace;
+        text-shadow: 1px 1px 2px #082b34;
+    }
+
+    .text11 {
+        text-align: center;
+        position: relative;
+        color: #333;
+        font-family: fantasy;
+        font-size: 22px;
+        color: #082b34;
+        margin-left: -12px;
+    }
+
+    .text1 {
+        text-align: center;
+        position: relative;
+        color: #333;
+        font-family: fantasy;
+        font-size: 22px;
+        color: #082b34;
+    }
+
+    .c1 {
+        z-index: -1;
+        margin-left: 3.3%;
+        position: relative;
+        top: 8px;
+        width: 100%;
+        transform: translateY(150px);
+        opacity: 0;
+        display: flex;
+        flex-wrap: wrap;
+        transition: all 2s ease;
+    }
+
+    .c1.active {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    #book {
+        top: 100px;
+        width: 300px;
+        height: 170px;
+    }
+
+    #graph {
+        margin-left: 100px;
+        margin-right: 100px;
+        width: 300px;
+        height: 170px;
+    }
+
+    #draw {
+        width: 300px;
+        height: 170px;
+    }
+
+    .w {
+        color: rgb(0, 251, 255);
+        position: relative;
+        top: 15%;
+        font-size: 30px;
+        text-shadow: 1px 1px 2px #0181a0;
+        font-family: cursive;
+        margin-left: 3.3%;
+        transform: translateY(150px);
+        opacity: 0;
+        transition: all 2s ease;
+    }
+
+    .w.active {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    .product {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    #images {
+        background-image: url(/image/b2.jpeg);
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        width: 100%;
+    }
+
+    #buy {
+        background-image: url(/image/buy.png);
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        width: 100%;
+    }
+
+    #by {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bolder;
+        font-stretch: extra-expanded;
+        font-size: 35px;
+        color: white;
+        background-color: rgb(252, 0, 227);
+        cursor: pointer;
+        box-shadow: 3px 3px 7px rgb(86 1 77);
+        width: 60%;
+        border-color: rgb(252, 0, 227);
+        height: 75px;
+        top: 40%;
+        left: 21%;
+        position: relative;
+    }
+
+    #by:active {
+        transform: translate(5px, 5px);
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: 30% 30% 40%;
+        color: whitesmoke;
+        background-color: #082b34;
+        width: 100%;
+        height: 400px;
+    }
+
+    .f1 {
+        margin: 10%;
+        color: whitesmoke;
+        font-size: 30px;
+        margin-left: 23%;
+        z-index: 1;
+    }
+
+    .f1>b {
+        margin: 2%;
+    }
+
+    .f1>ul {
+        list-style: circle;
+        position: relative;
+        color: #0181a0;
+        margin: 2%;
+        font-size: 15px;
+    }
+
+    .agreement {
+        cursor: pointer;
+        margin: 2%;
+    }
+
+.agreement:hover {
+        color: rgb(0, 0, 255);
+        text-decoration: underline;
+    }
+    .f2 {
+        margin: 5%;
+        color: whitesmoke;
+        font-size: 30px;
+        margin-left: 0%;
+        z-index: 1;
+    }
+
+    .f2>p {
+        margin: 2%;
+        color: whitesmoke;
+    }
+
+    .nb {
+        margin-left: 70%;
+        color: whitesmoke;
+    }
+
+    .tags {
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+
+    .logos {
+        margin-top: 5rem;
+        max-height: 0%;
+        display: flex;
+        margin-left: 2%;
+    }
+
+    .bin {
+        margin-left: 8%;
+    }
+
+    .gmail {
+        text-decoration: none;
+        color: #0181a0;
+    }
+
+    .gmaill {
+        display: inline-block;
+        position: relative;
+        top: 3px;
+    }
+
+    .gmail:hover {
+        color: blue;
+    }
+
+    #signlog {
+        position: sticky;
+        float: left;
+        top: 30%;
+        padding: 10px;
+        left: 35%;
+        background-color: white;
+        box-shadow: 3px 3px 7px rgb(65, 61, 64);
+        width: 450px;
+        height: 350px;
+        z-index: 100;
+        border-radius: 20px;
+    }
+
+    #signin {
+        background-color: rgb(1, 181, 252);
+        position: relative;
+        top: 8%;
+        height: 15%;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 30px;
+    }
+
+    #signin>b {
+        position: relative;
+        top: 13%;
+    }
+
+    legend {
+        text-align: center;
+    }
+
+    #shop {
+        background: none;
+        border: none;
+    }
+
+    #loging {
+        background: none;
+        border: none;
+    }
+
+    .email {
+        font-size: 25px;
+        top: 18px;
+        left: 10%;
+        color: #0181a0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        position: relative;
+    }
+
+    fieldset {
+        position: relative;
+        margin: 3%;
+        padding-bottom: 40px;
+
+    }
+
+    .text {
+        height: 20px;
+        position: relative;
+        top: -5px;
+        border: 1.7px solid grey;
+        border-radius: 12px;
+        padding-left: 18px;
+    }
+
+    .sub {
+        position: relative;
+        top: 29px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        width: 100px;
+        cursor: pointer;
+        height: 18px;
+        border: 1px solid rgb(255, 230, 0);
+        background-color: rgb(255, 230, 0);
+        border: 2px ridge rgb(247, 177, 0);
+    }
+
+    .havenot {
+        position: relative;
+        margin: 50px;
+    }
+
+    .blue {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    #username {
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    #sign #loggin {
+        margin-top: 10px;
+        position: relative;
+    }
+
+    .gg-close {
+        display: inline-block;
+        left: 90%;
+        position: relative;
+        border-color: red;
+        color: white;
+        background-color: red;
+        width: 30px;
+        height: 30px;
+        border-style: none;
+        padding-top: 7px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #closeb {
+        top: -8%;
+        left: 37%;
+    }
+
+    .review {
+        z-index: 10;
+        margin-top: 10px;
+        width: 100%;
+        height: 480px;
+        background-image: linear-gradient(135deg, #fd7e14 5%, #ffd43b 95%);
+        display: grid;
+        grid-template-areas:
+            "rtitle rtitle rtitle"
+            "review1 review2 review3"
+        ;
+    }
+
+    .reviews {
+        margin: 0% 10%;
+        color: rgb(61, 50, 50);
+        text-align: center;
+    }
+
+    #review1 {
+        grid-area: review1;
+    }
+
+    #review2 {
+        grid-area: review2;
+    }
+
+    #review3 {
+        grid-area: review3;
+    }
+
+    #rtitle {
+        position: relative;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-top: 3%;
+        font-size: 70px;
+        grid-area: rtitle;
+        text-align: center;
+        font-style: bold;
+        color: white;
+    }
+
+    #buymenu {
+        width: 100%;
+        height: 100vh;
+        position: sticky;
+        top: 0.1px;
+        background-color: white;
+        z-index: 10;
+        float: left;
+        overflow: hidden;
+    }
+
+    .btitle {
+        text-align: center;
+        padding-top: 35px;
+        width: 100%;
+        height: 80px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 35px;
+        font-weight: bolder;
+        border-bottom-right-radius: 40px;
+        border-bottom-left-radius: 40px;
+        background-color: rgb(0, 110, 255);
+    }
+
+    .articlecontain {
+        margin-top: 50px;
+        margin-left: 70px;
+        display: grid;
+        grid-template-areas:
+            'notebook grapharticle'
+            'notebook drawarticle'
+        ;
+    }
+
+    #notebook {
+        grid-area: notebook;
+    }
+
+    #grapharticle {
+        grid-area: grapharticle;
+    }
+
+    #drawarticle {
+        grid-area: drawarticle;
+    }
+
+    option {
+        color: gray;
+    }
+
+    .notefield {
+        border-radius: 20px;
+        height: 242px;
+        padding-left: 28px;
+        padding-top: 40px;
+    }
+
+    .types {
+        margin-bottom: 30px;
+    }
+
+    .buyinput {
+        width: 300px;
+        position: relative;
+        left: 10rem;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .graphfield {
+        border-radius: 20px;
+        height: 70px;
+        padding-left: 28px;
+        padding-top: 30px;
+    }
+
+    .buysubmit {
+        text-align: center;
+        position: relative;
+        left: 65%;
+        width: 300px;
+        height: 40px;
+        border-style: groove;
+        border-color: red;
+        background-color: rgb(247, 85, 85);
+        color: yellow;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+    #articlelegend {
+        background-color: rgb(4, 97, 220);
+        color: white;
+        font-weight: bold;
+        font-size: larger;
+    }
+
+    #buyinputless1 {
+        position: relative;
+        left: 7.3rem;
+    }
+
+    #buyinputless2 {
+        position: relative;
+        left: 7.3rem;
+    }
+
+    #buyinputless3 {
+        position: relative;
+        left: 7.3rem;
+    }
+    .reviewer{
+        text-align: center;
+        top: -100px;
+        color: black;
+        margin-bottom: 30px;
+        font-size: 33px;
+    }
+    .fieldreview{
+        width: 300px;
+        padding-left: 20px;
+        border-radius: 30px;
+        border-color: blue;
+        padding-right: 20px;
+    }
+    .stars{
+        color: #fd1414;
+        font-size: 20px;
+        position: relative;
+        top: 13px;
+    }
+    .pluspoint{
+        margin-bottom: 6px;
+    }
+    .reviewlegend{
+        position: relative;
+        top: 14.2px;
+    }
 </style>
+
 <body>
-    <input type="checkbox" id="check">
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-        <i class="fas fa-times" id="close"></i>
-    </label>
-<div class="nav">
-    <header>Vishnu Enterprises</header>
-    <ul class="sidebar">
-        <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-        <li><a href="#"><i class="fas fa-wallet"></i>Buy</a></li>
-    </ul>
-   </div> 
+    <div id="buymenu">
+        <div class="btitle">PLACE ORDER<button class="gg-close" id="closeb" onclick="beta()"></button></div>
+        <div class="articlecontain">
+            <div class="article" id="notebook">
+                <fieldset class="notefield">
+                    <legend id="articlelegend"> &nbsp; NOTEBOOK &nbsp;</legend>
+                    <div class="articlebuy">
+                        <form action="#">
+                            <p class="types">
+                                <label for="type">TYPE</label>
+                                <select name="type" id="type" class="buyinput">
+                                    <option value="none">--Select--</option>
+                                    <option value="bound">Bound Cover</option>
+                                    <option value="soft">Soft Cover</option>
+                                    <option value="spiral">Spiral Notebook</option>
+                                </select>
+                            </p>
+                            <p class="types">
+                                <label for="notepages">PAGE</label>
+                                <select name="notepages" id="notepages" class="buyinput">
+                                    <option value="none">--Select--</option>
+                                    <option value="80">80</option>
+                                    <option value="100">100</option>
+                                    <option value="120">120</option>
+                                </select>
+                            </p>
+                            <p class="types"><label for="notequantity">QUANTITY</label>
+                                <input type="number" value="notequantity"
+                                    placeholder="                  Should be more than 50" id="buyinputless1"
+                                    class="buyinput">
+                            </p>
+                        </form>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="article" id="grapharticle">
+                <fieldset class="graphfield">
+                    <legend id="articlelegend">&nbsp; GRAPH &nbsp; </legend>
+                    <div class="articlebuy">
+                        <form action="#" id="buyform2">
+                            <p class="types">
+                                <label for="graphpage">PAGE</label>
+                                <select name="graphpage" class="buyinput" id="graphpage">
+                                    <option value="none">--Select--</option>
+                                    <option value="40">40</option>
+                                    <option value="60">60</option>
+                                </select>
+                            </p>
+                            <p class="types"><label for="notequantity">QUANTITY</label>
+                                <input type="number" value="notequantity"
+                                    placeholder="                       Should be more than 50" id="buyinputless2"
+                                    class="buyinput">
+                            </p>
+                        </form>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="article" id="drawarticle">
+                <fieldset class="graphfield">
+                    <legend id="articlelegend">&nbsp; DRAWING BOOK &nbsp; </legend>
+                    <div class="articlebuy">
+                        <form action="#" id="buyform3">
+                            <p class="types">
+                                <label for="drawingpage">SIZE</label>
+                                <select name="drawingpage" class="buyinput" id="drawingpage">
+                                    <option value="none">--Select--</option>
+                                    <option value="A3">A3 (100 pages)</option>
+                                    <option value="A4">A4 (100 pages)</option>
+                                    <option value="A5">A5 (100 pages)</option>
+                                </select>
+                            </p>
+                            <p class="types"><label for="notequantity">QUANTITY</label>
+                                <input type="number" value="notequantity"
+                                    placeholder="                       Should be more than 50" id="buyinputless3"
+                                    class="buyinput">
+                            </p>
+                        </form>
+                    </div>
+                </fieldset>
+            </div>
+            <input type="button" value="SUBMIT" class="buysubmit" onclick="number()">
+        </div>
+    </div>
+
+    <div id="signlog">
+        <button class="gg-close" onclick="alpha()"></button>
+        <div id="sign">
+            <fieldset>
+                <legend>
+                    <div id="signin"><b>&nbsp;LOG IN&nbsp;</b></div>
+                </legend>
+                <div class="form">
+
+                    <form action="#" id="buyform1">
+                        <div class="email">Email Address &nbsp; <input type="email" class="text" id="mail"></div>
+                        <div class="email">Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" class="text" id="pass"></div>
+                        <button type="submit" class="sub" onclick="checklog()">SUBMIT</button>
+                </div>
+                </form>
+            </fieldset>
+            <div class="havenot"> Haven't Signed Up?&nbsp;&nbsp;&nbsp; <snap onclick="sign1()" class="blue">Sign Up.
+                </snap>
+            </div>
+        </div>
+
+        <div id="loggin">
+            <fieldset>
+                <legend>
+                    <div id="signin"><b>&nbsp;SIGN UP&nbsp;</b></div>
+                </legend>
+                <div class="form">
+
+                    <form action="#">
+                        <div class="email">
+                            <p id="username">User Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><input type="text" class="text" id="name">
+                        </div>
+                        <div class="email">Phone Number&nbsp;&nbsp;<input type="number" class="text" id="phone"></div>
+                        <div class="email">Email Address &nbsp; <input type="email" class="text" id="mailsign"></div>
+                        <div class="email">Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" class="text" id="passwordsign"></div>
+                        <input type="submit" class="sub" value="SUBMIT" onclick="checksign()">
+                </div>
+                </form>
+            </fieldset>
+            <div class="havenot"> Already Signed Up? &nbsp;&nbsp;&nbsp; <snap onclick="log1()" class="blue">Log In.
+                </snap>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="above">
+        <div class="top">
+            <img src="/image/v.jpg" class="v"> <span class="vish">Alpha Enterprises</span>
+        </div>
+        <div class="topright">
+            <button id="shop">
+                <p class="gg-shopping-cart" onclick="openmenu()"></p>
+            </button>
+            <button id="loging" onclick="signing()">
+                <p class="gg-profile">
+                <p class="log">Login/Sign Up</p>
+                </p>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h1 class="quote"> Copy, Where God Lies</h1>
+    </div>
+    <div class="product">
+        <div id="images">
+            <div class="w">
+                <ul>
+                <li class="pluspoint">&#10026 Have Trust of more than 2 Lakh people.</li>
+                <li class="pluspoint">&#10026 Delivery within 4 days.</li>
+                <li class="pluspoint">&#10026 Articles have clear sheets.</li>
+                <li class="pluspoint">&#10026 Contains Index.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="buy">
+            <button id="by" onclick="openmenu()">
+                <div class="bin">BUY &nbsp;&nbsp;<p class="gg-shopping-cart-white"></p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div class="c1">
+        <div class="c11">
+            <img id="book" src="/image/copy.jpeg">
+            <p class="text11">Having Varieties of Notebooks, <br> with <br>Soft covers, Bound covers and Spirals.</p>
+
+        </div>
+        <dv class="c11">
+            <img id="graph" src="/image/graph.jpg">
+            <p class="text1">Let's Take a Flight with Graph <br>and <br>Increase your Marks with Slope of e<sup>x</sup>.
+            </p>
+
+        </dv>
+        <div class="c11">
+            <img id="draw" src="/image/drawing.jpeg">
+            <p class="text1">Why Not to Get Extra Marks<br> in Drawing? </p>
+
+        </div>
+    </div>
+
+    <div class="review">
+        <p id="rtitle">Experience Of Our Customers</p>
+        <div class="reviews" id="review1"><fieldset class="fieldreview"><legend class="reviewlegend"><h3 class="reviewer">Indrajeet Kumar</h3></legend>Thanks to Alpha Enterprises for quick delivery and got in budget. There is no reason to not give 5 stars. <div class="stars">&#10031 &#10031 &#10031 &#10031 &#10031 </div></fieldset></div>
+        <div class="reviews" id="review2"><fieldset class="fieldreview"><legend class="reviewlegend"><h3 class="reviewer">Subham Mehto</h3></legend>I am happy with graph and drawing book I got. The quality of pages are vey good and deliivered on time. <div class="stars">&#10031 &#10031 &#10031 &#10031 </div></fieldset></div>
+        <div class="reviews" id="review3"><fieldset class="fieldreview"><legend class="reviewlegend"><h3 class="reviewer">Yash Raj</h3></legend>My friend recommended this website and I'm happy about it. Everything was too good from quallity to service. <div class="stars">&#10031 &#10031 &#10031 &#10031 &#10031 </div></fieldset></div>
+    </div>
+
+    <footer>
+
+        <div class="f1"><b>Contact Us</b>
+            <ul>
+                <li>
+                    <div class="gmaill">
+                        <p class="gg-phone"></p>
+                    </div> 9090905656
+                </li>
+                <li> <a class="gmail" href="mailto:abcd@gmail.com?Subject=Some%20subject">
+                        <div class="gmaill">
+                            <p class="gg-mail"></p>
+                        </div> abcd@gmail.com
+                    </a></li>
+            </ul>
+            <div class="logos">
+                <img class="tags" src="/image/trash.jpg"><img class="tags" src="/image/rec.jpeg">
+                <img class="tags" src="/image/clf.jpg"><img class="tags" src="/image/sb.png">
+            </div>
+        </div>
+        <div class="f1"><b>Misc</b>
+            <ul>
+                <li class="agreement">Terms & Conditions</li>
+                <li class="agreement">Privacy Policy</li>
+                <li class="agreement">Return Policy</li>
+            </ul>
+        </div>
+        <div class="f2">
+            [um-iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d447983.729738956!2d76.86252897043163!3d28.693448742665794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d039a93a86ad7%3A0x80c5c459be102246!2sAlpha%20Enterprises!5e0!3m2!1sen!2sin!4v1673350196059!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"]
+        </div>
+
+    </footer>
+    <script>
+        buymenu.style.display = 'none';
+        function openmenu() {
+            buymenu.style.display = 'block';
+        }
+        function beta() {
+            buymenu.style.display = 'none';
+        }
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.c1');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 0;
+
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+                else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+
+            var reveals = document.querySelectorAll('.w');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 0;
+
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+                else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+            var reveals = document.querySelectorAll('.b');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 0;
+
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+                else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+
+        }
+                
+
+
+        function number() {
+            let num1 = document.getElementById("buyinputless1").value;
+            let num2 = document.getElementById("buyinputless2").value;
+            let num3 = document.getElementById("buyinputless3").value;
+            let type = document.getElementById("type");
+            let typevalue = type.value;
+            let typetext = type.options[type.selectedIndex].text;
+
+            let note = document.getElementById("notepages");
+            let notevalue = note.value;
+            let notetext = note.options[note.selectedIndex].text;
+
+            let graphp = document.getElementById("graphpage");
+            let graphpvalue = graphp.value;
+            let graphptext = graphp.options[graphp.selectedIndex].text;
+
+            let drawingp = document.getElementById("drawingpage");
+            let drawingpvalue = drawingp.value;
+            let drawingptext = drawingp.options[drawingp.selectedIndex].text;
+
+            if (((num1 && num2 && num3) >= 50) || ((num1 == 0) && (num2 && num3 >= 50)) || ((num2 == 0) && (num1 && num3 >= 50)) || ((num3 == 0) && ((num2 && num1) >= 50)) || ((num1 == 0 && num2 == 0) && (num3 >= 50)) || ((num3 == 0 && num1 == 0) && (num2 >= 50)) || ((num3 == 0 && num2 == 0) && (num1 >= 50))) { console.log("hello");
+                if ((num1 >= 50 && (notetext != "--Select--") && (typetext != "--Select--") &&((graphptext == "--Select--" && num2 < 50)||(graphptext !="--Select"&& num2>=50)) && ((drawingptext == "--Select--" && num3 < 50)||(drawingptext !="--Select"&& num3>=50))) || (num2 >= 50 && (graphptext != "--Select--") && ((typetext == "--Select--" && num1 < 50)||(typeptext !="--Select"&& num1>=50)) && ((drawingptext == "--Select--" && num3 < 50)||(drawingptext !="--Select"&& num3>=50)) && ((notetext == "--Select--" && num1 < 50)||(noteptext !="--Select"&& num1>=50))) || (num3 >= 50 && (drawingptext != "--Select--") && ((typetext == "--Select--" && num1 < 50)||(typetext !="--Select"&& num1>=50)) && ((graphptext == "--Select--" && num2 < 50)||(graphptext !="--Select"&& num2>=50)) && ((notetext == "--Select--" && num1 < 50)||(notetext !="--Select"&& num1>=50)))) {
+                    document.getElementById("buyform1").submit();
+                    document.getElementById("buyform2").submit();
+                    document.getElementById("buyform3").submit();
+                    buymenu.style.display = 'none';
+                }
+                else {
+                    alert("Please fill required field.");
+                }
+            }
+            else {
+                alert("Quantity should be more than 50.");
+            }
+        }
+
+        function checksign(){
+            let email =document.getElementById("mailsign").value;
+            let password =  document.getElementById("passwordsign").value;
+            let name= document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            if(name=="")
+            {alert("Please Enter User Name.");}
+               else{
+                if(phone==""){ alert("Please Enter Phone Number.");}
+                else{ if(phone.length>=14||phone.length<=9){alert("Please Enter Correct Phone Number. ")}
+                       else{ if (email==""){ alert("Please Enter EmailId.");}
+                        else{
+                                if(password==""){alert("Please Enter Password."); } 
+                                else{   if(password.length<8){alert("Password should be of minimum 8 letters.")}
+                                  else{ signlog.style.display='none';} }
+                            }}
+                    }
+               } 
+            
+            
+                            }
+        
+
+
+        function checklog(){
+            let email =document.getElementById("mail").value;
+            let password =  document.getElementById("pass").value;
+            
+            if(email=="") {
+                alert("Please Enter EmailId.");}
+                else{
+                if(password=="")
+                {alert("Please Enter Password."); } 
+                else{signlog.style.display='none';}}
+        }
+
+        
+
+
+
+        signlog.style.display = 'none';
+        function signing() {
+
+            signlog.style.display = 'block'; sign.style.display = 'block'; loggin.style.display = 'none';
+        }
+        function alpha() {
+            signlog.style.display = 'none'; loggin.style.display = 'none'; sign.style.display = 'none';
+        }
+        function sign1() {
+            loggin.style.display = 'block'; sign.style.display = 'none';
+        }
+        function log1() {
+            sign.style.display = 'block'; loggin.style.display = 'none';
+        }
+       
+    </script>
 </body>
+
 </html>
